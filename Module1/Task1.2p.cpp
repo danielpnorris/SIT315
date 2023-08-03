@@ -24,17 +24,19 @@ void setup()
 void senseMotion()
 {
   //I have creatd this function to trigger when PIR_PIN value changes
-  // It checks if it is 1 or 0 and prints the appropriate output
+  // It checks if it is 1 or 0, changes the LED and prints the appropriate output
   int motionValue = digitalRead(PIR_PIN);
   Serial.print(motionValue);
   Serial.println("");
   if(motionValue == 1)
   {
     Serial.print("Motion Detected");
+    digitalWrite(LED_PIN, HIGH);
   }
   else
   {
     Serial.print("Motion Ended");
+    digitalWrite(LED_PIN, LOW);
   }
   Serial.println("");
 }
@@ -44,3 +46,4 @@ void loop()
 {
  // No need for loop as using interrupts
 }
+
